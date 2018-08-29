@@ -1,5 +1,5 @@
 #!/bin/bash
-## Christos Prassas - 0.04
+## Christos Prassas - 0.04 - 20180829
 ############################################
 ##
 ## VARIABLES
