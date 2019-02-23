@@ -74,7 +74,8 @@ fi
 # Start entry in the log
 echo "$(date "+%Y-%m-%d %k:%M:%S") - Sync started." >> "$LOG_FILE"
 echo "$(date "+%Y-%m-%d %k:%M:%S") - Sync started... Please wait."
-
+# find old backup files and delete them. Keep only the last 7 backups
+find "$BACKUP_TO" -mtime +6 -type f -delete
 # Start sync
 #if rsync -avz --delete --exclude "$BACKUP_EXCLUDE_BIN" "$BACKUP_FROM" "$BACKUP_TO" &>> "$LOG_FILE"; then
 rsync -avz --stats -h --exclude "/home/excludedDir/" --exclude ".tras*" "$BACKUP_FROM" "$BACKUP_TO" &&
